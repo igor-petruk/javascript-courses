@@ -26,7 +26,6 @@ var friendsIndex = function(){
 			}
 		}
 	}
-	console.log(index)
 	return index;
 }();
 
