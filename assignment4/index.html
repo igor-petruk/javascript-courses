@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Tests page</title>
+			<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+			<script src="myBind.js" defer async></script>
+			<script src="person.js" defer async></script>
+			<script src="person2.js" defer async></script>
+			<script src="selector.js" defer async></script>
+			<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css">
+
+			<style type="text/css">
+				.red{
+					background: #ff0000;
+					display: block;
+				}	
+			</style>
+	</head>
+	<body>
+		<fieldset>
+			<legend>myBind test</legend>
+			<button class="node">Button1</button>
+			<button class="node">Button2</button>
+
+			Message: <span id="myBindMessage">(none)</span>
+		</fieldset>
+
+		<fieldset>
+			<legend>QUnit for Person and Person2</legend>
+			<div id="qunit"></div>
+			<div id="qunit-fixture"></div>
+		</fieldset>
+		<fieldset>
+			<legend>Selector</legend>
+			<div>My simple div</div>
+			<div class="red" >My red div</div>
+		</fieldset>
+	</body>
+</html>
