@@ -23,7 +23,7 @@ var getFriends = function(userId){
 			.map(function(item){
 				return peopleHash[item];
 			})
-			.filter(function(item){
+			.filter(function(item){ // ignore missing, my interpretation
 				return item !== undefined;
 			});
 	}else{
