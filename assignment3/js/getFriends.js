@@ -7,13 +7,13 @@ var people = [
 	{id: 6, name: 'Jim', friends: [1]}
 ];
 
-var peopleHash = (function(){
+var peopleHash = (function(people){
 	var p = {};
 	people.forEach(function(item){
 		p[item.id] = item;
 	})
 	return p;
-})();
+})(people);
 
 var getFriends = function(userId){
 	var person = peopleHash[userId];
