@@ -7,31 +7,28 @@ var people = [
 	{id: 6, name: 'Jim', friends: [1]}
 ];
 
-var friendsIndex = function(){
-	var peopleIndex = {};
-	var index = {};
-	for (var personIndex in people){
-		var person = people[personIndex];
-		index[person.id] = [];
-		peopleIndex[person.id] = person;
-	}
-	for (var personIndex in people){
-		var person = people[personIndex];
-		if (person.friends !== null){
-			var friends = person.friends;
-			var indexItem = index[person.id];
-			for (var i in friends){
-				var friendIndex = friends[i];
-				indexItem.push(peopleIndex[friendIndex]);
-			}
-		}
-	}
-	return index;
-}();
+var peopleHash = (function(){
+	var p = {};
+	people.forEach(function(item){
+		p[item.id] = item;
+	})
+	return p;
+})();
 
 var getFriends = function(userId){
-	var indexQueryResult = friendsIndex[userId];
-	return (indexQueryResult === undefined) ? null : indexQueryResult;		
+	var person = peopleHash[userId];
+
+	if (person !== undefined){
+		return (person.friends || [])
+			.map(function(item){
+				return peopleHash[item];
+			})
+			.filter(function(item){
+				return item !== undefined;
+			});
+	}else{
+		return null;
+	}
 }
 
 module("getFriends")
