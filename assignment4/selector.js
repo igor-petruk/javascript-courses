@@ -8,7 +8,6 @@ var $ = function (selector) {
     selectedItems.height = function(newValue){
         for (var i = 0; i<selectedItems.length; i++){
             selectedItems[i].style.height = newValue+"px";
-            console.log(selectedItems[i]);
         }
     }
 
